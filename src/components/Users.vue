@@ -3,7 +3,10 @@
     <h1>Users</h1>
 
     <ul>
-      <li v-for="user in users">{{user.name}}: {{user.email}}</li>
+      <li v-for="user in users">
+        <input type="checkbox" class="toggle" v-model="user.contacted" />
+        <span :class="{contacted: user.contacted}">{{user.name}}: {{user.email}}</span>
+      </li>
     </ul>
 
     <form v-on:submit="addUser">
@@ -55,5 +58,7 @@ export default {
 </script>
 
 <style scoped>
-    
+    .contacted {
+      text-decoration: line-through;
+    }
 </style>
