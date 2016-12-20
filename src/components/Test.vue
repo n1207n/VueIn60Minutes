@@ -1,5 +1,6 @@
 <template>
   <div class="test">
+    <input type="text" v-model="title" />
     <!-- <span v-html="title"></span> -->
     <h1>{{title}}</h1>
     <p v-if="showName">{{user.firstName}}</p>
