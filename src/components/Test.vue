@@ -2,8 +2,9 @@
   <div class="test">
     <!-- <span v-html="title"></span> -->
     <h1>{{title}}</h1>
-    <p>{{user.firstName}}</p>
-    <p v-text="user.firstName"></p>
+    <p v-if="showName">{{user.firstName}}</p>
+    <p v-else>Nobody</p>
+    <!-- <p v-text="user.firstName"></p> -->
   </div>
 </template>
 
@@ -17,6 +18,7 @@ export default {
         firstName: 'John',
         lastName: 'Doe',
       },
+      showName: true,
     };
   },
 };
