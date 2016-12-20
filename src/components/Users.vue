@@ -23,6 +23,7 @@
 <script>
 export default {
   name: 'users',
+
   data() {
     return {
       newUser: {},
@@ -45,6 +46,7 @@ export default {
       ],
     };
   },
+
   methods: {
     addUser: function addUser(e) {
       this.users.push({
@@ -57,6 +59,16 @@ export default {
     deleteUser: function deleteUser(user) {
       this.users.splice(this.users.indexOf(user), 1);
     },
+  },
+
+  created: function created() {
+    this.$http.get('https://jsonplaceholder.typicode.com/users')
+      .then((response) => {
+        console.log(response.data);
+        this.users = response.data;
+      }, (response) => {
+        console.log(response.data);
+      });
   },
 };
 </script>
