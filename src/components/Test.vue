@@ -13,6 +13,13 @@
 
     <button v-on:click="greet('Hello world')">Say greeting</button>
     <input type="text" v-on:keyup="pressKey" v-on:keyup.enter="enterHit"/>
+    <hr>
+    <br>
+    <label>First Name: </label> <input type="text" v-model="user.firstName" />
+    <br>
+    <label>Last Name: </label> <input type="text" v-model="user.lastName" />
+
+    <h3>{{fullName}}</h3>
   </div>
 </template>
 
@@ -33,6 +40,11 @@ export default {
         { title: 'Item 3' },
       ],
     };
+  },
+  computed: {
+    fullName: function fullName() {
+      return `${this.user.firstName} ${this.user.lastName}`;
+    },
   },
   methods: {
     greet: (greeting) => {
