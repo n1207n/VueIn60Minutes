@@ -6,6 +6,7 @@
       <li v-for="user in users">
         <input type="checkbox" class="toggle" v-model="user.contacted" />
         <span :class="{contacted: user.contacted}">{{user.name}}: {{user.email}}</span>
+        <button v-on:click="deleteUser(user)">X</button>
       </li>
     </ul>
 
@@ -52,6 +53,9 @@ export default {
         contacted: false,
       });
       e.preventDefault();
+    },
+    deleteUser: function deleteUser(user) {
+      this.users.splice(this.users.indexOf(user), 1);
     },
   },
 };
